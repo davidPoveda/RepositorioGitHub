@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8080/"
+           targetNamespace="http://localhost:8080/" elementFormDefault="qualified">
+    
+    <xs:element name="saveEmpleadoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="linkingTimeCompany" type="xs:date"/>
+                <xs:element name="birthdate" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="saveEmpleadoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="names" type="xs:string"/>
+                <xs:element name="fastname" type="xs:string"/>
+                <xs:element name="typedocument" type="xs:string"/>
+                <xs:element name="numberdocument" type="xs:string"/>
+                <xs:element name="birthdate" type="xs:date"/>
+                <xs:element name="admissiondate" type="xs:date"/>
+                <xs:element name="post" type="xs:string"/>
+                <xs:element name="salary" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

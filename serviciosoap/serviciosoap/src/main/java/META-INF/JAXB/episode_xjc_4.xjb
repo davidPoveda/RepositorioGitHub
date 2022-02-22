@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2022.02.20 a las 07:44:55 PM COT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://localhost:8080/">
+    <schemaBindings map="false">
+      <package name="localhost._8080"/>
+    </schemaBindings>
+    <bindings scd="tns:saveEmpleadoResponse">
+      <class ref="localhost._8080.SaveEmpleadoResponse"/>
+    </bindings>
+    <bindings scd="tns:saveEmpleadoRequest">
+      <class ref="localhost._8080.SaveEmpleadoRequest"/>
+    </bindings>
+  </bindings>
+</bindings>
+
