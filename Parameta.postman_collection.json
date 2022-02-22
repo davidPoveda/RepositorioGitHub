@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "aa1d47ba-2b73-47dd-814a-ddefe457f502",
+		"name": "Parameta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8090/empleador/nuevo/{numeroIdentifica}/{tipoIdentifica}/{nombres}/{apellidos}/{fechaNacimiento}/{fechaVincula}/{cargo}/{salario}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"postman.setGlobalVariable(\"startTime\",Date.parse(new Date(\"2020/06/12 00:00:10\")));\r",
+							"postman.setGlobalVariable(\"endTime\",Date.parse(new Date(\"2020/06/12 23:59:10\")));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/empleador/nuevo/80187/CC/David/Poveda/25-4-1983/22-2-2010/ingeniero/10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"empleador",
+						"nuevo",
+						"80187",
+						"CC",
+						"David",
+						"Poveda",
+						"25-4-1983",
+						"22-2-2010",
+						"ingeniero",
+						"10000"
+					]
+				},
+				"description": "Postman empleador"
+			},
+			"response": []
+		}
+	]
+}

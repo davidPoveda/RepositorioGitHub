@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="016090a1-d216-42fa-a126-2029ffb3373e" activeEnvironment="Default" name="empleadoWsdl" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="eeb003ee-ce81-4b18-9106-648fe61aaa8f" wsaVersion="NONE" name="EmpleadoPortSoap11" type="wsdl" bindingName="{http://localhost:8080/}EmpleadoPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/empleadoWsdl.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/empleadoWsdl.wsdl"><con:part><con:url>http://localhost:8080/ws/empleadoWsdl.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://localhost:8080/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="saveEmpleadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="linkingTimeCompany" type="xs:date"/>
+            <xs:element name="birthdate" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveEmpleadoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="names" type="xs:string"/>
+            <xs:element name="fastname" type="xs:string"/>
+            <xs:element name="typedocument" type="xs:string"/>
+            <xs:element name="numberdocument" type="xs:string"/>
+            <xs:element name="birthdate" type="xs:date"/>
+            <xs:element name="admissiondate" type="xs:date"/>
+            <xs:element name="post" type="xs:string"/>
+            <xs:element name="salary" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="saveEmpleadoResponse">
+    <wsdl:part element="tns:saveEmpleadoResponse" name="saveEmpleadoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveEmpleadoRequest">
+    <wsdl:part element="tns:saveEmpleadoRequest" name="saveEmpleadoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmpleadoPort">
+    <wsdl:operation name="saveEmpleado">
+      <wsdl:input message="tns:saveEmpleadoRequest" name="saveEmpleadoRequest"></wsdl:input>
+      <wsdl:output message="tns:saveEmpleadoResponse" name="saveEmpleadoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmpleadoPortSoap11" type="tns:EmpleadoPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="saveEmpleado">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="saveEmpleadoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveEmpleadoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmpleadoPortService">
+    <wsdl:port binding="tns:EmpleadoPortSoap11" name="EmpleadoPortSoap11">
+      <soap:address location="http://localhost:8080/ws/empleado"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/empleado</con:endpoint></con:endpoints><con:operation id="f8591337-9098-457d-b8fc-abe30f733f69" isOneWay="false" action="" name="saveEmpleado" bindingOperationName="saveEmpleado" type="Request-Response" outputName="saveEmpleadoResponse" inputName="saveEmpleadoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7ccde1b-7b7d-439f-bdc4-90f5cf2bd66d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleado</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://localhost:8080/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:saveEmpleadoRequest>\r
+         <loc:names>?</loc:names>\r
+         <loc:fastname>?</loc:fastname>\r
+         <loc:typedocument>?</loc:typedocument>\r
+         <loc:numberdocument>?</loc:numberdocument>\r
+         <loc:birthdate>?</loc:birthdate>\r
+         <loc:admissiondate>?</loc:admissiondate>\r
+         <loc:post>?</loc:post>\r
+         <loc:salary>?</loc:salary>\r
+      </loc:saveEmpleadoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/EmpleadoPort/saveEmpleadoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
