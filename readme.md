@@ -12,4 +12,9 @@ http://localhost:8090/empleador/nuevo/80188/CC/Mauricio/Lotero/24-4-1983/21-2-20
 
 8. El formato de los campos de fecha son dd-mm-yyyy
 9. Para ejecutar los dos servicios se debe ejecutar el comando mvn spring-boot:run, en consolas independientes por cada servicio
+10. Los datos para la validacion de registros en la base de datos son los siguientes:
+server host: empleadorbd.cp3we0e2yplj.us-east-1.rds.amazonaws.com
+datebase: empleadorbd
+usuario: empleadorbd
+clave: Colombia2010*
 
