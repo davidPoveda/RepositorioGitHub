@@ -11,4 +11,5 @@ Documento de configuracón
 http://localhost:8090/empleador/nuevo/80188/CC/Mauricio/Lotero/24-4-1983/21-2-2010/Profesor/100000
 
 8. El formato de los campos de fecha son dd-mm-yyyy
+9. Para ejecutar los dos servicios se debe ejecutar el comando mvn spring-boot:run, en consolas independientes por cada servicio
 
