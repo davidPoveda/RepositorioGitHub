@@ -6,7 +6,6 @@
 package com.dpoveda.servicio.serviciorest.configuration;
 
 import com.dpoveda.servicio.serviciorest.service.EmpleadoClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;

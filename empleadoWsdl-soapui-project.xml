@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="016090a1-d216-42fa-a126-2029ffb3373e" activeEnvironment="Default" name="empleadoWsdl" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="eeb003ee-ce81-4b18-9106-648fe61aaa8f" wsaVersion="NONE" name="EmpleadoPortSoap11" type="wsdl" bindingName="{http://localhost:8080/}EmpleadoPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/empleadoWsdl.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/empleadoWsdl.wsdl"><con:part><con:url>http://localhost:8080/ws/empleadoWsdl.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://localhost:8080/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/">
+<con:soapui-project id="016090a1-d216-42fa-a126-2029ffb3373e" activeEnvironment="Default" name="empleadoWsdl" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="eeb003ee-ce81-4b18-9106-648fe61aaa8f" wsaVersion="NONE" name="EmpleadoPortSoap11" type="wsdl" bindingName="{http://localhost:8080/}EmpleadoPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/empleadoWsdl.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/empleadoWsdl.wsdl"><con:part><con:url>http://localhost:8080/ws/empleadoWsdl.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://localhost:8080/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/">
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="saveEmpleadoResponse">
@@ -67,6 +67,20 @@
          <loc:admissiondate>?</loc:admissiondate>\r
          <loc:post>?</loc:post>\r
          <loc:salary>?</loc:salary>\r
+      </loc:saveEmpleadoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/EmpleadoPort/saveEmpleadoRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="35226008-5949-4dfd-b666-2325c5c1ca58" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/empleado</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://localhost:8080/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loc:saveEmpleadoRequest>\r
+         <loc:names>David</loc:names>\r
+         <loc:fastname>Lotero</loc:fastname>\r
+         <loc:typedocument>CC</loc:typedocument>\r
+         <loc:numberdocument>123457</loc:numberdocument>\r
+         <loc:birthdate>1983-24-02</loc:birthdate>\r
+         <loc:admissiondate>2001-01-01</loc:admissiondate>\r
+         <loc:post>Admininstrador</loc:post>\r
+         <loc:salary>150000</loc:salary>\r
       </loc:saveEmpleadoRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/EmpleadoPort/saveEmpleadoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

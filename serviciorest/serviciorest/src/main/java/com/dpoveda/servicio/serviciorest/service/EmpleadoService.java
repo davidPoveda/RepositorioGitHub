@@ -7,6 +7,7 @@ package com.dpoveda.servicio.serviciorest.service;
 
 import com.dpoveda.servicio.serviciorest.dto.EmpleadoDTO;
 import com.dpoveda.servicio.serviciorest.dto.EmpleadoOutDTO;
+import com.dpoveda.servicio.serviciorest.wsdl.SaveEmpleadoResponse;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -44,7 +45,9 @@ public class EmpleadoService {
         if (validarEmpleado.getMensajeError() != null) {
             return validarEmpleado;
         }
-        soapClient.invocarEmpleado(empleadoDTO);
+        SaveEmpleadoResponse response = soapClient.invocarEmpleado(empleadoDTO);
+        validarEmpleado.setEdadActual(response.getBirthdate().toString());
+        validarEmpleado.setTiempoVinculacion(response.getLinkingTimeCompany().toString());
         return validarEmpleado;
 
     }
@@ -65,45 +68,6 @@ public class EmpleadoService {
             outDTO.setMensajeError(validaObligatorios);
             return outDTO;
         }
-        return retornoMensajeExito(empleadoDTO);
-    }
-
-    /**
-     * Metodo encargado de retornar el mensaje de exito al servicio REST
-     *
-     * @param empleadoDTO
-     * @return
-     */
-    private EmpleadoOutDTO retornoMensajeExito(EmpleadoDTO empleadoDTO) {
-        EmpleadoOutDTO outDTO = new EmpleadoOutDTO();
-
-        String fromDate = convertirFecha(empleadoDTO.getAdmissiondate());
-        String toDate = convertirFecha(new Date());
-
-        DateTimeFormatter f = new DateTimeFormatterBuilder().parseCaseInsensitive()
-            .append(DateTimeFormatter.ofPattern("dd-MM-yyyy")).toFormatter();
-        
-        Period period = Period.between(LocalDate.parse(fromDate,f), LocalDate.parse(toDate,f));
-
-        StringBuilder fechaIngreso = new StringBuilder();
-        outDTO.setTiempoVinculacion(fechaIngreso.append(period.getYears()).append(" - ")
-                .append(period.getMonths()).append(" - ").append(period.getDays()).toString());
-
-        String fromDate2 = convertirFecha(empleadoDTO.getBirthdate());
-        period = Period.between(LocalDate.parse(fromDate2,f), LocalDate.parse(toDate,f));
-        StringBuilder fechaCumpleanyos = new StringBuilder();
-        outDTO.setEdadActual(fechaCumpleanyos.append(period.getYears()).append(" - ")
-                .append(period.getMonths()).append(" - ").append(period.getDays()).toString());
-
-        outDTO.setAdmissiondate(empleadoDTO.getAdmissiondate());
-        outDTO.setBirthdate(empleadoDTO.getBirthdate());
-        outDTO.setFastname(empleadoDTO.getFastname());
-        outDTO.setNames(empleadoDTO.getNames());
-        outDTO.setNumberdocument(empleadoDTO.getNumberdocument());
-        outDTO.setPost(empleadoDTO.getPost());
-        outDTO.setSalary(empleadoDTO.getSalary());
-        outDTO.setTypedocument(empleadoDTO.getTypedocument());
-
         return outDTO;
     }
 
@@ -186,8 +150,7 @@ public class EmpleadoService {
                 return "El campo admissiondate es obligatorio";
             }
 
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-            Date fecha = formato.parse(fechaVincula);
+            Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaVincula);
             empleadoDTO.setAdmissiondate(fecha);
         } catch (ParseException ex) {
             Logger.getLogger(EmpleadoService.class.getName()).log(Level.SEVERE, null, ex);
@@ -199,8 +162,7 @@ public class EmpleadoService {
                 return "El campo birthdate es obligatorio";
             }
 
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-            Date fechaDos = formato.parse(fechaNacimiento);
+            Date fechaDos = new SimpleDateFormat("dd/MM/yyyy").parse(fechaNacimiento);
             empleadoDTO.setBirthdate(fechaDos);
         } catch (ParseException ex) {
             Logger.getLogger(EmpleadoService.class.getName()).log(Level.SEVERE, null, ex);
